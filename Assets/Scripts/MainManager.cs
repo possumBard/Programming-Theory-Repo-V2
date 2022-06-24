@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainManager : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class MainManager : MonoBehaviour
     [SerializeField] public float zRange;
     [SerializeField] public float xPos = 3.5f;
     [SerializeField] private float yPos = 30.0f;
-    [SerializeField] private float yMin = -25;
+    //[SerializeField] private float yMin = -25;
+    public int score;
+    public static MainManager Instance;
+    public TextMeshProUGUI scoreText; 
 
 
 
@@ -17,9 +21,14 @@ public class MainManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        // Use this script in other scripts
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        // Set score to zero on start
+        score = 0;
         // Spawns random egg starting at 2 seconds at 1.5 second intervals
         InvokeRepeating("SpawnRandomEgg", 2, 1.5f);
     }
@@ -27,7 +36,7 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Destroy eggs after a certain point
+        scoreText.text = "Score: " + score;
         
     }
 
@@ -51,4 +60,6 @@ public class MainManager : MonoBehaviour
         return randomPos;
 
     }
+
+
 }

@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float speed = 5.0f;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,4 +21,9 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.forward * horizontalInput * Time.deltaTime * speed);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Destroy(other.gameObject);
+    //}
 }
