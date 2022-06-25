@@ -26,6 +26,9 @@ public class MainManager : MonoBehaviour
 
     public GameObject[] eggPrefabs;
 
+    
+    
+
 
     // Start is called before the first frame update
     private void Awake()
