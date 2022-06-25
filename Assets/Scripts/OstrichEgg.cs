@@ -7,7 +7,7 @@ public class OstrichEgg : EggDrop
 {
     // POLYMORPHISM
     [SerializeField] private int pointValue = 15;
-
+    
 
     // Start is called before the first frame update
     void Start()

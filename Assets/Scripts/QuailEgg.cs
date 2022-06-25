@@ -7,6 +7,7 @@ public class QuailEgg : EggDrop
 {
     // POLYMORPHISM
     [SerializeField] private int pointValue = 5;
+    
 
 
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 376530348997059570}
   m_Layer: 0
   m_Name: Ostrich Egg
-  m_TagString: Untagged
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c848a92868caa4d40b1e6b2a536425bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointValue: 15

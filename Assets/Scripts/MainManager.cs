@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
@@ -12,8 +14,13 @@ public class MainManager : MonoBehaviour
     [SerializeField] private float yPos = 30.0f;
     //[SerializeField] private float yMin = -25;
     public int score;
+    public float spawnRate = 1.5f;
+    //[SerializeField] public int lives = 3;
+    public bool isGameActive;
     public static MainManager Instance;
-    public TextMeshProUGUI scoreText; 
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
+    public Button restartButton;
 
 
 
@@ -27,10 +34,14 @@ public class MainManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        // Sets the game as active
+        isGameActive = true;
+
         // Set score to zero on start
         score = 0;
-        // Spawns random egg starting at 2 seconds at 1.5 second intervals
-        InvokeRepeating("SpawnRandomEgg", 2, 1.5f);
+
+        //// Spawns random eggs at 1.5 second intervals
+        StartCoroutine(SpawnRandomEgg());
     }
 
     // Update is called once per frame
@@ -40,14 +51,24 @@ public class MainManager : MonoBehaviour
         
     }
 
-    // ABSTRACTION
-    void SpawnRandomEgg()
-    {
-        // Pick a random egg index
-        eggIndex = Random.Range(0, 3);
 
-        // Currently spawns random eggs where the egg was originally put in the scene view
-        Instantiate(eggPrefabs[eggIndex], GenerateSpawnPosition(), eggPrefabs[eggIndex].transform.rotation);
+
+    // ABSTRACTION
+    IEnumerator SpawnRandomEgg()
+    {
+
+        while (isGameActive)
+        {
+            // Wait some time between spawning eggs
+            yield return new WaitForSeconds(spawnRate);
+
+            // Pick a random egg index
+            eggIndex = Random.Range(0, 3);
+
+            // Currently spawns random eggs where the egg was originally put in the scene view
+            Instantiate(eggPrefabs[eggIndex], GenerateSpawnPosition(), eggPrefabs[eggIndex].transform.rotation);
+        }
+        
     }
 
     private Vector3 GenerateSpawnPosition()
@@ -61,5 +82,16 @@ public class MainManager : MonoBehaviour
 
     }
 
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
+        isGameActive = false;
+        restartButton.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Main");
+    }
 
 }

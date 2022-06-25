@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
-    public float speed = 5.0f;
+    [SerializeField] private float speed = 15.0f;
 
     
 
@@ -22,8 +22,5 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * horizontalInput * Time.deltaTime * speed);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Destroy(other.gameObject);
-    //}
+    
 }
