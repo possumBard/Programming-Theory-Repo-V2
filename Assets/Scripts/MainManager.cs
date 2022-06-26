@@ -25,9 +25,10 @@ public class MainManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI highScoreText;
     public Button restartButton;
 
-
+    
 
     public GameObject[] eggPrefabs;
 
@@ -36,7 +37,7 @@ public class MainManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         // Use this script in other scripts
         Instance = this;
@@ -54,12 +55,16 @@ public class MainManager : MonoBehaviour
 
         // Spawns random eggs at 1.5 second intervals
         StartCoroutine(SpawnRandomEgg());
+
+        // Display high score
+        DisplayHighScore();
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreText.text = "Score: " + score;
+
         
     }
 
@@ -92,6 +97,24 @@ public class MainManager : MonoBehaviour
         Vector3 randomPos = new Vector3(xPos, yPos, zRange);
         return randomPos;
 
+    }
+
+    
+
+    public void CheckHighScore()
+    {
+        if(score > DataManager.Instance.highScore)
+        {
+            DataManager.Instance.highScore = score;
+            DataManager.Instance.winnerName = menuUI.UserName;
+
+            DataManager.Instance.SaveHighScore();
+        }
+    }
+
+    public void DisplayHighScore()
+    {
+        highScoreText.text = "High Score: " + DataManager.Instance.winnerName + DataManager.Instance.highScore;
     }
 
     public void GameOver()
