@@ -240,8 +240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86, y: -49.25}
-  m_SizeDelta: {x: 125, y: 50}
+  m_AnchoredPosition: {x: 120.25, y: -49.25}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143346156
 MonoBehaviour:
@@ -1138,8 +1138,6 @@ MonoBehaviour:
   gameOverText: {fileID: 624509373}
   highScoreText: {fileID: 1355305842}
   restartButton: {fileID: 539865964}
-  winnerName: 
-  highScore: 0
   eggPrefabs:
   - {fileID: 2160663738156365811, guid: 7dc211c03e703f2479b9b70dca56c672, type: 3}
   - {fileID: 3796756189886676742, guid: b2476c8113636e84fb3d3a0ae0425541, type: 3}
@@ -1390,7 +1388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -459.25, y: 248.25}
+  m_AnchoredPosition: {x: -459.25, y: 243}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341089872

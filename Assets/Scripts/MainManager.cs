@@ -51,7 +51,7 @@ public class MainManager : MonoBehaviour
 
         // Displays player's name at start
         menuUI = GameObject.Find("User Interface").GetComponent<MenuUIHandler>();
-        playerNameText.text = "Player Name: " + menuUI.UserName;
+        playerNameText.text = "Player Name: \n" + menuUI.UserName;
 
         // Spawns random eggs at 1.5 second intervals
         StartCoroutine(SpawnRandomEgg());
@@ -63,9 +63,9 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: \n" + score;
 
-        
+        CheckHighScore();
     }
 
 
@@ -114,7 +114,7 @@ public class MainManager : MonoBehaviour
 
     public void DisplayHighScore()
     {
-        highScoreText.text = "High Score: " + DataManager.Instance.winnerName + DataManager.Instance.highScore;
+        highScoreText.text = "High Score: " + DataManager.Instance.winnerName + "\n" + DataManager.Instance.highScore;
     }
 
     public void GameOver()
