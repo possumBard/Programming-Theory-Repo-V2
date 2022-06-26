@@ -31,7 +31,8 @@ public class MenuUIHandler : MonoBehaviour
 
     public void SetName()
     {
-        if(userInput.text.Length > 4 && userInput.text.Length > 0)
+        Debug.Log(userInput.text.Length);
+        if (userInput.text.Length < 5 && userInput.text.Length > 0)
         {
             userName.text = userInput.text;
             validName = true;
