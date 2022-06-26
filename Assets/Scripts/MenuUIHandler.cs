@@ -6,7 +6,7 @@ using TMPro;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    // public static MenuUIHandler Instance;
+    public static MenuUIHandler Instance;
     // public TextMeshProUGUI userName;
     public TMP_InputField userInput;
     public TextMeshProUGUI errorMessage;
@@ -31,14 +31,14 @@ public class MenuUIHandler : MonoBehaviour
         }
     }
 
-    //private void Awake()
-    //{
-    //    // Use this script in other scripts
-    //    Instance = this;
-    //    DontDestroyOnLoad(gameObject);
-    //}
+    private void Awake()
+    {
+        // Use this script in other scripts
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
-        public void StartGame()
+    public void StartGame()
     {
         if (validName)
         {

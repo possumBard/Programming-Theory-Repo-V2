@@ -49,8 +49,8 @@ public class MainManager : MonoBehaviour
         score = 0;
 
         // Displays player's name at start
-        // menuUI = GameObject.Find("Canvas").GetComponent<MenuUIHandler>();
-        playerNameText.text = "Player Name: ";
+        menuUI = GameObject.Find("User Interface").GetComponent<MenuUIHandler>();
+        playerNameText.text = "Player Name: " + menuUI.UserName;
 
         // Spawns random eggs at 1.5 second intervals
         StartCoroutine(SpawnRandomEgg());
