@@ -23,6 +23,7 @@ public class MainManager : MonoBehaviour
     public bool isGameActive;
     public static MainManager Instance;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
 
@@ -30,7 +31,7 @@ public class MainManager : MonoBehaviour
 
     public GameObject[] eggPrefabs;
 
-    
+    private MenuUIHandler menuUI;
     
 
 
@@ -47,7 +48,11 @@ public class MainManager : MonoBehaviour
         // Set score to zero on start
         score = 0;
 
-        //// Spawns random eggs at 1.5 second intervals
+        // Displays player's name at start
+        // menuUI = GameObject.Find("Canvas").GetComponent<MenuUIHandler>();
+        playerNameText.text = "Player Name: ";
+
+        // Spawns random eggs at 1.5 second intervals
         StartCoroutine(SpawnRandomEgg());
     }
 
